@@ -19,7 +19,7 @@ from flask import session
 #ap = SQLAlchemy(app)
 
 
-
+app=app
 
 
     
