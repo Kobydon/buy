@@ -1,0 +1,366 @@
+<!--
+author: W3layouts
+author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+{% include 'base.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>DUODARP</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Grocery Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="{{url_for('static',filename='css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
+<link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
+<!-- font-awesome icons -->
+<link href="{{url_for('static',filename='css/font-awesome.css')}}" rel="stylesheet" type="text/css" media="all" /> 
+<!-- //font-awesome icons -->
+<!-- js -->
+<script src="{{url_for('static',filename='js/jquery-1.11.1.min.js')}}"></script>
+<!-- //js -->
+<link href='//fonts.googleapis.com/css?family=Ubuntu:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="{{url_for('static',filename='js/move-top.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/easing.js')}}"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){		
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+<!-- start-smoth-scrolling -->
+<style>
+	
+	.search input[type=text]{
+        width:300px;
+        height:25px;
+        border-radius:25px;
+        border: none;
+    }
+         
+    .search{
+        float:right;
+        margin:7px;
+    }
+         
+    .search button{
+        background-color: #0074D9;
+        color: #f2f2f2;
+        float: right;
+        padding: 5px 10px;
+        margin-right: 16px;
+        font-size: 12px;
+        border: none;
+        cursor: pointer;
+    }
+
+	@media screen and (max-width: 600px) {
+
+.search input[type=text]{
+	width:50%;
+	height:25px;
+	border-radius:25px;
+	border: none;
+	display: none;
+}
+	 
+.search button{
+  display: none;
+}
+.search{
+	float:right;
+	margin:7px;
+}
+
+
+	}
+	.thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+  }
+  .thumbnail p {
+    margin-top: 15px;
+    color: #555;
+  }
+	
+</style>
+</head>
+	
+<body>
+		<div class="agileits_header">
+		<div class="w3l_offers">
+			<a href="{{url_for('brand',type='iphone')}}">Today's special Offers !</a>
+		</div>
+		<div class="w3l_search">
+			<form action="{{url_for('search')}}" method="POST">
+				<input type="text" name="Product" value="Search a product..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search a product...';}" required="">
+				<input type="submit" value=" ">
+			</form>
+		</div>
+		
+		<div class="w3l_header_right">
+			<ul>
+				<li class="dropdown profile_details_drop">
+					{% if current_user.is_authenticated %}
+					<a href="{{url_for('dashboard')}}" class="btn btn-info btn-sm mt-3" >{{current_user.username}}</a>
+					{% endif %}
+					
+					{% if not  current_user.is_authenticated %}
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa-2x" aria-hidden="true"></i><span class="caret"></span></a>
+					{% endif %}
+					<div class="mega-dropdown-menu">
+						<div class="w3ls_vegetables">
+							{% if not current_user.is_authenticated %}
+							<ul class="dropdown-menu drp-mnu">
+								<li><a href="{{url_for('login')}}">Login</a></li> 
+								<li><a href="{{url_for('register')}}">Sign Up</a></li>
+							</ul>
+							{% endif %}
+						</div>                  
+					</div>	
+				</li>
+			</ul>
+		</div>
+		<div class="w3l_header_right1">
+			<h2><a href="{{url_for('contact')}}">Contact Us</a></h2>
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+<!-- script-for sticky-nav -->
+	<script>
+	$(document).ready(function() {
+		 var navoffeset=$(".agileits_header").offset().top;
+		 $(window).scroll(function(){
+			var scrollpos=$(window).scrollTop(); 
+			if(scrollpos >=navoffeset){
+				$(".agileits_header").addClass("fixed");
+			}else{
+				$(".agileits_header").removeClass("fixed");
+			}
+		 });
+		 
+	});
+	</script>
+<!-- //script-for sticky-nav -->
+	<div class="logo_products">
+		<div class="container">
+			<div class="w3ls_logo_products_left">
+				<h1><a href="{{url_for('home')}}"><span>DUODARP.Com</span> Store</a></h1>
+			</div>
+			<div class="w3ls_logo_products_left1">
+				<ul class="special_items">
+					<li><a href="{{url_for('about')}}">About Us</a><i>/</i></li>
+					<li><a href="{{url_for('terms')}}">Terms and Conditions</a><i>/</i></li>
+				
+					
+				</ul>
+			</div>
+			<div class="w3ls_logo_products_left1">
+				<ul class="phone_email">
+					<li><i class="fa fa-phone" aria-hidden="true"></i>(+233) 541 570 527</li>
+					<li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailto:kevinfiadzeawu@gmail.com">kevinfiadzeawu@gmail.com</a></li>
+				</ul>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //header -->
+<!-- banner -->
+	<div class="banner">
+		<div class="w3l_banner_nav_left">
+			<nav class="navbar nav_bottom">
+			 <!-- Brand and toggle get grouped for better mobile display -->
+			  <div class="navbar-header nav_2">
+				  <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </button>
+			   </div> 
+			   <!-- Collect the nav links, forms, and other content for toggling -->
+			   <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+				<ul class="nav navbar-nav nav_1">
+					<li><a href="{{url_for('electronics',type='clothing')}}">Clothing</a></li>
+					<li><a href="{{url_for('electronics',type='others')}}">Others</a></li>
+					<li class="dropdown mega-dropdown active">
+						<a href="{{url_for('electronics',type='electronics')}} "    target="_blank" class="dropdown-toggle" data-toggle="dropdown">Electronics<span class="caret"></span></a>				
+						<div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
+							<div class="w3ls_vegetables">
+								<ul>	
+									<li><a href="{{url_for('electronics',type='electronics_new')}}">New</a></li>
+									<li><a href="{{url_for('electronics',type='electronics_old')}}">Used</a></li>
+								</ul>
+							</div>                  
+						</div>				
+					</li>
+					<li><a href="{{url_for('electronics',type='property')}}">Property</a></li>
+					<li><a href="{{url_for('electronics',type='job')}}">Jobs</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Vehicle<span class="caret"></span></a>
+						<div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
+							<div class="w3ls_vegetables">
+								<ul>
+									<li><a href="{{url_for('electronics',type='vehicle_old')}}">Used</a></li>
+									<li><a href="{{url_for('electronics',type='vehicle_new')}}">New</a></li>
+								</ul>
+							</div>                  
+						</div>	
+					</li>
+					<li><a href="{{url_for('electronics',type='sports')}}">Sports</a></li>
+					<li><a href="{{url_for('electronics',type='education')}}">Education</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">City<span class="caret"></span></a>
+						<div class="dropdown-menu mega-dropdown-menu w3ls_vegetables_menu">
+							<div class="w3ls_vegetables">
+								<ul>
+									<li><a href="{{url_for('accra')}}">Accra</a></li>
+									<li><a href="{{url_for('kumasi')}}">Kumasi</a></li>
+									<li><a href="{{url_for('takoradi')}}">Sekondi-Takoradi</a></li>
+									</ul>
+								</li>
+							
+							</ul>
+							
+							</div>                  
+						</div>	
+					</li>
+					
+				</ul>
+				</div>
+			 </div><!-- /.navbar-collapse -->
+		</nav>
+	</div>
+		<div class="w3l_banner_nav_right">
+			<section class="slider">
+				<div class="flexslider">
+					<ul class="slides">
+						<li>
+							<div class="w3l_banner_nav_right_banner">
+								
+								<div class="more">
+									<a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="w3l_banner_nav_right_banner1">
+								
+								<div class="more">
+									<a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="w3l_banner_nav_right_banner2">
+							
+								<div class="more">
+									<a href="products.html" class="button--saqui button--round-l button--text-thick" data-text="Shop now">Shop now</a>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<!-- flexSlider -->
+				<link rel="stylesheet" href="{{url_for('static',filename='css/flexslider.css')}}" type="text/css" media="screen" property="" />
+				<script defer src="{{url_for('static',filename='js/jquery.flexslider.js')}}"></script>
+				<script type="text/javascript">
+				$(window).load(function(){
+				  $('.flexslider').flexslider({
+					animation: "slide",
+					start: function(slider){
+					  $('body').removeClass('loading');
+					}
+				  });
+				});
+			  </script>
+			<!-- //flexSlider -->
+		</div>
+		<div class="clearfix"></div>
+	</div>
+<!-- banner -->
+	
+<!-- top-brands -->
+	
+
+<!-- //top-brands -->
+<!-- fresh-vegetables -->
+
+
+<!-- //fresh-vegetables -->
+<!-- newsletter -->
+
+<!-- //newsletter -->
+<!-- footer -->
+
+<!-- //footer -->
+<!-- Bootstrap Core JavaScript -->
+<script src="{{url_for('static',filename='js/bootstrap.min.js')}}"></script>
+<script>
+$(document).ready(function(){
+    $(".dropdown").hover(            
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+            $(this).toggleClass('open');        
+        },
+        function() {
+            $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+            $(this).toggleClass('open');       
+        }
+    );
+});
+</script>
+<!-- here stars scrolling icon -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+				var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 1200,
+				easingType: 'linear' 
+				};
+			*/
+								
+			$().UItoTop({ easingType: 'easeOutQuart' });
+								
+			});
+	</script>
+<!-- //here ends scrolling icon -->
+<script src="{{url_for('static',filename='js/minicart.js')}}"></script>
+<script>
+		paypal.minicart.render();
+
+		paypal.minicart.cart.on('checkout', function (evt) {
+			var items = this.items(),
+				len = items.length,
+				total = 0,
+				i;
+
+			// Count the number of each item in the cart
+			for (i = 0; i < len; i++) {
+				total += items[i].get('quantity');
+			}
+
+			if (total < 3) {
+				alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
+				evt.preventDefault();
+			}
+		});
+
+	</script>
+	
+</body>
+</html>

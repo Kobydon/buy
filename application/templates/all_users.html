@@ -1,0 +1,94 @@
+
+{% include 'admin_dash.html' %}
+
+{% block body %}
+<head>
+    <!-- Theme Made By www.w3schools.com - No Copyright -->
+    <title>Dashboard</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+   
+
+  </head>
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+   
+    <hr>
+ 
+    
+
+<div class=" row">
+    <div class="col-sm-12">
+        <div class = "jumbotron p-0">
+       
+            
+            <h2> <button type="button" class="btn btn-success float-right" data-toggle = "modal" data-target ="#modalPatient">Add New User </button></h2>
+
+
+
+            <table id="myTable" class="display">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Admin</th>
+                        <th>Registration Date</th>
+                        <th>Action</th>
+                     
+                
+                   
+                    </tr>
+                </thead>
+                <tbody>
+               
+                    {% for row in users %}
+
+
+                    <tr>
+    
+                        <td> {{row.id}}</td>
+                        <td> {{row.username}}</td>
+                        <td> {{row.admin}}</td>
+                        <td>{{row.created_date}}</td>                       
+                    <td>
+                     <i class="fa fa-edit fa-2x" data-toggle="modal" data-target="#modaledit{{row.id}}"></i>
+                     <a href="/delete_user/{{row.id}}"><i class="fa fa-trash fa-2x"></i></a>
+                      <!-- <a href="/delete/{{row.id}}" class="btn btn-info btn-xs"  onclick="return confirm('Are you sure to delete?')">Message</a> -->
+                        
+                    </td>
+                </tr>
+                {% endfor %}
+                       
+    
+                </tbody>
+            </table>
+            
+
+                   
+</table>
+</div>
+</div>
+</div>
+
+
+     
+    
+</main>  
+    
+<script>
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+  </script>
+{% endblock %}

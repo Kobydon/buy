@@ -1,0 +1,42 @@
+{% include 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+    <nav class="navbar navbar-default navbar-fixed-top" style="background-color:   rgb(64, 112, 155);color: white;">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+          <a class="navbar-brand" href="#myPage"><i class="fa fa-shopping-cart">DUODARP</i></a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{{url_for('buy')}}"><i class="fa fa-money">Buy Product</i></a></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="{{url_for('login')}}"><i class="fa fa-user">Me</i>
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="{{url_for('dashboard')}}"><i class="fab fa-creative-commons-remix">my Ads</i></a></li>
+                <li><a href="{{url_for('edit_profile')}}"><i class ="far fa-user-circle">Edit Profile</i></a></li>
+                <li><a href="{{url_for('logout')}}"><i class ="fa fa-sign-out">Log Out</i></a></li>
+              </ul>
+            </li>
+            <li><a href="{{url_for('post')}}" style="background-color: green;color: white;">POST New AD</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    </body>
+    </html>

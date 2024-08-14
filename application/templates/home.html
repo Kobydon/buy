@@ -1,0 +1,629 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+  
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        
+        <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="assets/vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+        tom styles for this template-->
+        
+  <style>
+  body {
+    font: 400 15px/1.8 Lato, sans-serif;
+    color: #777;
+  }
+  h3, h4 {
+    margin: 10px 0 30px 0;
+    letter-spacing: 10px;      
+    font-size: 20px;
+    color: #111;
+  }
+  .container {
+    padding: 80px 120px;
+  }
+  .person {
+    border: 10px solid transparent;
+    margin-bottom: 25px;
+    width: 80%;
+    height: 80%;
+    opacity: 0.7;
+  }
+  .person:hover {
+    border-color: pink;;
+  }
+  .carousel-inner img {
+    -webkit-filter: grayscale(90%);
+    filter: grayscale(90%); /* make all photos black and white */ 
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+  }
+  .carousel-caption h3 {
+    color: #fff !important;
+  }
+
+  .search input[type=text]{
+        width:300px;
+        height:25px;
+        border-radius:25px;
+        border: none;
+    }
+         
+    .search{
+        float:right;
+        margin:7px;
+    }
+         
+    .search button{
+        background-color: #0074D9;
+        color: #f2f2f2;
+        float: right;
+        padding: 5px 10px;
+        margin-right: 16px;
+        font-size: 12px;
+        border: none;
+        cursor: pointer;
+    }
+
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+  }
+  .bg-1 {
+    background: #2d2d30;
+    color: #bdbdbd;
+  }
+  .bg-1 h3 {color: #fff;}
+  .bg-1 p {font-style: italic;}
+  .list-group-item:first-child {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+  }
+  .list-group-item:last-child {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .thumbnail img{
+    width:200px;
+    height:200px;
+    margin-bottom:15px;
+    transition: 0.3s ease-in-out;
+}
+
+.thumbnail:hover{
+    transition: 0.3s ease-in-out;
+    transform: scale(1.1);
+}
+
+.thumbnail{
+    padding:20px;
+    margin:30px;
+}
+  .thumbnail {
+    padding: 0 0 15px 0;
+    border: none;
+    border-radius: 0;
+  }
+  .thumbnail p {
+    margin-top: 15px;
+    color: #555;
+  }
+  .btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: pink;;
+    border-radius: 0;
+    transition: .2s;
+  }
+  .btn:hover, .btn:focus {
+    border: 1px solid #333;
+    background-color: #fff;
+    color: #000;
+  }
+  .modal-header, h4, .close {
+    background-color:  rgb(64, 112, 155);
+    color: #fff !important;
+    text-align: center;
+    font-size: 30px;
+  }
+  .modal-header, .modal-body {
+    padding: 40px 50px;
+  }
+  .nav-tabs li a {
+    color: #777;
+  }
+  #googleMap {
+    width: 100%;
+    height: 400px;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }  
+  .navbar {
+    font-family: Montserrat, sans-serif;
+    margin-bottom: 0;
+    background-color: #2d2d30;
+    border: 0;
+    font-size: 11px !important;
+    letter-spacing: 4px;
+    opacity: 0.9;
+  }
+  .navbar li a, .navbar .navbar-brand { 
+    color: #d5d5d5 !important;
+  }
+  .navbar-nav li a:hover {
+    color: #fff !important;
+  }
+  .navbar-nav li.active a {
+    color: #fff !important;
+    background-color: #29292c !important;
+  }
+  .navbar-default .navbar-toggle {
+    border-color: transparent;
+  }
+  .open .dropdown-toggle {
+    color: #fff;
+    background-color: #555 !important;
+  }
+  .dropdown-menu li a {
+    color: #000 !important;
+  }
+  .dropdown-menu li a:hover {
+    background-color: red !important;
+  }
+  footer {
+    background-color: #2d2d30;
+    color: #f5f5f5;
+    padding: 32px;
+  }
+  footer a {
+    color: #f5f5f5;
+  }
+  footer a:hover {
+    color: #777;
+    text-decoration: none;
+  }  
+  .form-control {
+    border-radius: 0;
+  }
+  textarea {
+    resize: none;
+
+
+  }
+  
+  .seller{
+     margin: auto; 
+     width: 80%;
+      padding: 10px;
+      border: 1px solid  rgb(64, 112, 155);
+      display: block;
+      background-color: rgb(64, 112, 155) ;
+      color: white;
+  }
+.homecategories{
+border-radius: 4px;
+text-align: center;
+display: block;
+}
+
+.citis{
+  float: right;
+  text-align: center; 
+  padding:12px 14px;
+  display: block;
+  background-color: rgb(64, 112, 155);
+  color: white;
+  display: none;
+}
+  @media screen and (max-width: 600px) {
+
+    .search input[type=text]{
+        width:50%;
+        height:25px;
+        border-radius:25px;
+        border: none;
+        display: none;
+    }
+         
+    .search button{
+      display: none;
+    }
+    .search{
+        float:right;
+        margin:7px;
+    }
+      .seller{
+         width: 100%;
+       
+       }
+       .homecategories{
+         width: 100%;
+    
+       }
+
+       #contact{
+        width: auto;
+       }
+       #footer{
+        width: auto;
+        display: none;
+
+       }
+       .citis{
+        width: 100%;
+       }
+       input[type=text] {
+         
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+}
+}
+
+
+  </style>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color:   rgb(64, 112, 155);color: white;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="{{url_for('home')}}"><i class="fa fa-shopping-cart">buyKev</i></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('home')}}">HOME</a></li>
+        <li><a href="#band">About us</a></li>
+      
+        <li class="dropdown">
+         
+          <a class="dropdown-toggle" data-toggle="dropdown" href="{{url_for('login')}}"><i class="fa fa-user">Login</i>
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="{{url_for('register')}}">Register</a></li>
+          </ul>
+        </li>
+       
+        <li><a href="{{url_for('post')}}" style="background-color: green;color: white;">POST YOUR AD</a></li>
+        
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+            <div class="home-top">
+              <div class="container">
+              <div class="row">
+                <div class="col-6">
+                  <h1 class="t-bold">
+                    Welcome to the Kevin's market place !</h1>
+                    
+            
+                    <div class="search">
+             
+                      <form action="{{url_for('search')}}" method="POST">
+                          <input type="text" placeholder=" Search " name="find">
+                          <button>
+                              <i class="fa fa-search"
+                                  style="font-size: 18px;">
+                              </i>
+                          </button>
+                      </form>
+                  </div>
+              </div>
+            <br><br><br>  
+
+            
+            {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+
+            {% for message in messages %}
+
+            <div class = "alert alert-success alert-dismissable" role="alert">
+                <button type="button" class="close" data-dismiss = "alert" aria-label= "close">
+
+                    <span aria-hidden ="true">x</span>
+                </button>
+                {{message}}
+
+            </div>
+
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            <div class="homecategories" >
+              <p><strong>Browse our categories <i class=" fa fa-arrow-down"></i></p></strong>
+          
+              <div class="row">
+                <div class="col-6 lg-3">
+                  <a href="{{url_for('electronics')}}"><i class=" fa fa-mobile fa-2x"> Electronics</i></a>
+             </div>
+
+             <div class="col-6 lg-3">
+              <a href="{{url_for('property')}}"><i class=" fa fa-home fa-2x"> property</i></a>
+         </div>
+
+         <div class="col-6 lg-3">
+          <a href="{{url_for('vehicle')}}"><i class=" fa fa-car fa-2x"> Vehicles</i></a>
+     </div>
+         </div>
+
+  
+
+        
+      </div>
+
+         <br><br>
+         <div class="citis">
+          <p style="background-color: white; color: black;"><strong>Cities</strong></p>
+          <li><a href="{{url_for('accra')}}" style="color: white;">Accra</a></li>
+        <li><a href="{{url_for('kumasi')}}"style="color: white;">Kumasi</a></li>
+        <li><a href="{{url_for('takoradi')}}"style="color: white;">Sekondi Takoradi</a></li>
+        <br>
+        <p style="background-color: white; color: black;"><strong>Regions</strong></p>
+        <li><a href="{{url_for('accra')}}" style="color: white;">Greater Accra</a></li>
+      <li><a href="{{url_for('kumasi')}}"style="color: white;">Ashanti</a></li>
+      <li><a href="{{url_for('takoradi')}}"style="color: white;">Western</a></li>
+      
+        
+        </div>
+
+
+         </div>
+         </div>
+        </div>
+        </div>
+        </div>
+     
+         
+       
+                  </div>
+                  
+                       
+        
+                  <br><br><br><br>
+           
+          <div class="seller" >
+          
+            <div class="row">
+              <div class="col-sm-4">
+                <a href="{{url_for('electronics')}}" style="color:pink;"><i class=" fa fa-mobile fa-2x" > Electronics</i></a>
+                <br>
+                <p><strong>Find great deals for used electronics in Ghana including mobile phones, computers, laptops, TVs, home theatres and much more.</strong></p>
+           </div>
+
+           <div class="col-sm-4 ">
+            <a href="{{url_for('education')}}" style="color:pink;"><i class=" fas fa-graduation-cap fa-2x"> Education</i></a>
+            <br>
+            <p><strong>Buy and sell books and magazines, find tuition, classes and other educational resources in Ghana.</strong></p>
+       </div>
+          
+       <div class="col-sm-4 ">
+        <a href="{{url_for('clothing')}}" style="color:pink;"><i class=" fas fa-tshirt fa-2x"> Clothing </i></a>
+        <br>
+        <p><strong>Choose from a wide range of clothing items, health and beauty products and everything else you need to keep yourself looking stylish.</strong></p>
+   </div>
+
+   <div class="col-sm-4 ">
+    <a href="{{url_for('sports')}}" style="color:pink;"><i class=" fas fa-futbol fa-2x"> Sports </i></a>
+    <br>
+    <p><strong>Buy and sell used musical instruments, sports gear and accessories, art and collectibles as well as a whole range of items for kids.</strong></p>
+</div>
+      
+<div class="col-sm-4 ">
+<a href="{{url_for('jobs')}}" style="color:pink;"><i class=" fas fa-briefcase	 fa-2x"> Jobs </i></a>
+  <br>
+  <p><strong>Post and apply for jobs and career opportunities in Ghana. Search for job vacancies in your city.</strong></p>
+</div>
+
+<div class="col-sm-4 ">
+  <a href="{{url_for('other')}}" style="color:pink;"><i class=" fas fa-brush fa-2x"> Other </i></a>
+  <br>
+  <p><strong>Classified ads for miscellaneous products and items all over Ghana. Buy and sell almost anything.</strong></p>
+</div>
+    </div>
+    </div>
+    
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+     
+          
+     
+    
+
+          <!---->
+
+<!-- Container (Contact Section) -->
+<div id="contact" class="container" style="width: 100%; padding: 100px;">
+  <h3 class="text-center">Contact</h3>
+  <p class="text-center"><em>Send Us Message</em></p>
+
+  <div class="row">
+    <div class="col-md-4">
+      <p></p>
+      <p><span class="glyphicon glyphicon-map-marker"></span>Accra, Gh</p>
+      <p><span class="glyphicon glyphicon-phone"></span>Phone: +233 541570527</p>
+      <p><span class="glyphicon glyphicon-envelope"></span>Email: kevinfiadzeawu@gmail.com</p>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <form action="/mymessage" method="POST">
+          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" id="comments" name="message" placeholder="type message here " rows="10"></textarea>
+      <br>
+      <div class="row">
+        <div class="col-md-12 form-group">
+          <button class="btn pull-right" type="submit">Send</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+ 
+  <br>
+  
+
+<!-- Footer -->
+
+<footer style="  width: 100%;background:  rgb(64, 112, 155);color: white;text-align: center;padding:50px; margin: auto;" id="footer" class="text-center">
+ <div class="row"></div>
+ <div class="row">
+   <div class="col-sm-2">
+  <a class="up-arrow" href="#myPage" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+</div>
+<div class="container-fluid pb-0 mb-0 justify-content-center text-light ">
+  <footer>
+      <div class="row my-5 justify-content-center py-5">
+          <div class="col-11">
+              <div class="row ">
+                  <div class="col-xl-8 col-md-4 col-sm-4 col-12 my-auto mx-auto a">
+                      <h3 class="text-muted mb-md-0 mb-5 bold-text">buyKev.com</h3>
+                  </div>
+                  <div class="col-xl-2 col-md-4 col-sm-4 col-12">
+                      <h6 class="mb-3 mb-lg-4 bold-text "><b>MENU</b></h6>
+                      <ul class="list-unstyled">
+                          <li><a href="{{url_for('home')}}">Home</a></li>
+                          <li><a href="#">Terms & Conditions</a></li>
+                          <li><a href="#">Privacy Policy</a></li>
+                          <li><a href="#">Sitemap</a></li>
+                      </ul>
+                  </div>
+                  <div class="col-xl-2 col-md-4 col-sm-4 col-12">
+                      <h6 class="mb-3 mb-lg-4 text-muted bold-text mt-sm-0 mt-5"><b>ADDRESS</b></h6>
+                      <p class="mb-1">7th Avenue, Greda-Estates</p>
+                      <p>Teshie</p>
+                  </div>
+              </div>
+              <div class="row ">
+                  <div class="col-xl-8 col-md-4 col-sm-4 col-auto my-md-0 mt-5 order-sm-1 order-3 align-self-end">
+                      <p class="social text-muted mb-0 pb-0 bold-text"> <span class="mx-2"><i class="fa fa-facebook" aria-hidden="true"></i></span> <span class="mx-2"><i class="fa fa-linkedin-square" aria-hidden="true"></i></span> <span class="mx-2"><i class="fa fa-twitter" aria-hidden="true"></i></span> <span class="mx-2"><i class="fa fa-instagram" aria-hidden="true"></i></span> </p><small class="rights"><span>&#174;</span> Copyright © Kev's Development.</small>
+                  </div>
+                  <div class="col-xl-2 col-md-4 col-sm-4 col-auto order-1 align-self-end ">
+                      <h6 class="mt-55 mt-2 text-muted bold-text"><b>Administrator</b></h6><small> <span><i class="fa fa-envelope" aria-hidden="true"></i></span> kevinfiadzeawu@gmail.com</small>
+                  </div>
+                  <div class="col-xl-2 col-md-4 col-sm-4 col-auto order-2 align-self-end mt-3 ">
+                    <p style="background-color: yellowgreen;">App by Kevin Kwabena Fia.</p>
+      <p style="background-color: green;">instagram: <a href="https://www.instagram.com/kevin_is_around">follow</a></p>
+      <p style="background-color: green;">facebook: <a href="https://www.facebook.com">view page</a></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+</div>
+
+
+
+
+
+<!--
+<div class="row">
+  <div class="col-sm-3">
+   <p>Copyright © Kev's Technologies</p> 
+    </div>
+
+      <div class="col-sm-3">
+        <p><a href="#">About us</a></p>
+        <p><a href="#">Terms & Conditions</a></p>
+        <p><a href="#">Privacy Policy</a></p>
+        <p><a href="#">Sitemap</a></p>
+        </div>
+
+        
+    <div class="col-sm-3">
+      <p style="background-color: yellowgreen;">App by Kevin Kwabena Fia.</p>
+      <p style="background-color: green;">instagram: <a href="https://www.instagram.com/kevin_is_around">follow</a></p>
+      <p style="background-color: green;">facebook: <a href="https://www.facebook.com">view page</a></p>
+      </div>
+
+</div>
+</div>
+</footer>
+-->
+
+<script>
+$(document).ready(function(){
+  // Initialize Tooltip
+  $('[data-toggle="tooltip"]').tooltip(); 
+  
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+})
+ 
+</script>
+
+
+  <script>
+     var val = purechatApi.get('chatbox.unavailableBehavior');
+
+</script>

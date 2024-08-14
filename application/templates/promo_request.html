@@ -1,0 +1,299 @@
+{% include 'admin_dash.html'  %}
+
+          
+
+
+            
+            {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+
+            {% for message in messages %}
+
+            <div class = "alert alert-success alert-dismissable" role="alert">
+                <button type="button" class="close" data-dismiss = "alert" aria-label= "close">
+
+                    <span aria-hidden ="true">x</span>
+                </button>
+                {{message}}
+
+            </div>
+
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+            
+            
+<div class="row text-center">
+   
+    
+    {% for row in all_goods %}
+    
+    <div class="col-sm-4">
+      
+      <div class="thumbnail">
+        <p><strong>{{row.brand}}</strong></p>
+         
+        <img src="{{url_for('get_image_promo',id = row.id)}}"  alt="doctor" width="250" height="100">
+  
+    <p><strong>  {{row.price}} , {{row.category}}  </strong>
+      <p><strong>  {{row.description}} <p>{{row.post_on}}</p> </strong>
+
+          <a href="/update/{{row.id}}" data-toggle="modal" data-target="#modaledit{{row.id}}" ><i class="fa fa-edit fa-2x" ></i></a>  <a href="/delete_ads_promo/{{row.id}}"><i class="fa fa-trash fa-2x"></i></a>
+          <button class="btn btn-info" style="background-color: pink;" data-toggle="modal" data-target="#modalpromote{{row.id}}" >promote</button>
+    </div>
+    </div>
+   
+   
+
+    {% endfor %}
+
+    </div>
+    
+  </div>
+
+
+  {% for row in all_goods   %}
+    <!-- Modal -->
+    <div class="modal fade" id="modalpromote{{row.id}}" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <span class="glyphicon glyphicon-shopping-cart"></span><p>Approve Promo</p>
+          </div>
+          <div class="modal-body">
+            <form action="{{url_for('accept_promo')}}" enctype="multipart/form-data" method="POST">
+
+        
+         
+
+            
+              <label for="condition"><b>Condition</b></label><span style="color: red !important; display: inline; float: none;">*</span> 
+              
+              <input type="hidden" name="id" value="{{row.id}}">
+                <br>
+            <select id="condition" name="condit" class="form-control">
+            <option value="{{row.condition}}">{{row.condition}}</option>
+              <option value="new">New</option>
+              <option value="old">Old</option>
+             
+              
+              
+    
+             
+          </select>
+    <br>
+      <label for="category"><b>Category</b></label><span style="color: red !important; display: inline; float: none;">*</span> 
+      <select id="country" name="category" class="form-control">
+        <option value="{{row.category}}">{{row.category}}</option>
+        <option value="electronics">Electronics</option>
+        <option value="education">Education</option>
+        <option value="clothing">Clothing</option>
+        <option value="sports">Sports</option>
+        <option value="clothing">Job</option>
+        <option value="education">Other</option>
+        <option value="education">Vehicle</option>
+    </select>
+    
+      
+    <br> 
+            
+          <label for="Brand"><b>Brand</b></label><span style="color: red !important; display: inline; float: none;">*</span> 
+          <br>
+          <input type="text" placeholder="Product Brand" name="brand" value="{{row.brand}}" required>
+          <br>
+    
+              
+          <label for="price"><b>Price</b></label><span style="color: red !important; display: inline; float: none;">*</span>
+          <br> 
+          <input type="text" placeholder="Product Price" name="price"  value ="{{row.price}}" required>
+    
+          <br>
+          <label for="negotiable"><b>Negotiable</b></label><span style="color: red !important; display: inline; float: none;">*</span> 
+          <br>
+          <select id="negotiable" name="negotiable" class="form-control">
+            <option value="{{row.negotiable}}">{{row.negotiable}}</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+    
+            
+            
+           
+        </select>
+          <br> 
+          <label for="description"><b>Description</b></label><span style="color: red !important; display: inline; float: none;">*</span> 
+          <textarea class="form-control" id="description"   name="description" placeholder="More details = more buyers!" rows="10"></textarea>
+    
+        
+            <label for="city"><b>City</b></label><span style="color: red !important; display: inline; float: none;">*</span> 
+            <select id="country" name="city" class="form-control">
+                <option value="{{row.city}}">{{row.city}}</option>
+                <option value="Accra">Accra</option>
+                <option value="Kumasi">Kumasi</option>
+                <option value="Sekondi">Sekondi- Takoradi</option>
+                
+                
+               
+            </select>
+    
+                 
+          <label for="phone"><b>Phone</b></label><span style="color: red !important; display: inline; float: none;">*</span> 
+          <br>
+          <input type="text" placeholder="your phone number" name="phone" value="{{row.phone}}" required>
+    
+    
+            <br>
+               
+          <label for="city"><b>Add Photo</b></label><span style="color: red !important; display: inline; float: none;">*</span>
+          <br> 
+          <input type="file"   name= "image">
+         
+        <br>
+          <input type="submit" value="submit" style="width: 50%; margin: auto;  padding: 10px;">
+    
+    
+        </form>
+   
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+              <span class="glyphicon glyphicon-remove"></span> Cancel
+            </button>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor  %}
+
+
+  
+  {% for row in all_goods   %}
+    <!-- Modal -->
+    <div class="modal fade" id="modaledit{{row.id}}" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h4><span class="glyphicon glyphicon-shopping-cart"></span> Update</h4>
+          </div>
+          <div class="modal-body">
+            <form action="{{url_for('update_good')}}" enctype="multipart/form-data" method="POST">
+
+        
+         
+
+            
+              <label for="condition"><b>Condition</b></label><span style="color: red !important; display: inline; float: none;">*</span> 
+              
+              <input type="hidden" name="id" value="{{row.id}}">
+                <br>
+            <select id="condition" name="condit" class="form-control">
+            <option value="{{row.condition}}">{{row.condition}}</option>
+              <option value="new">New</option>
+              <option value="old">Old</option>
+             
+              
+              
+    
+             
+          </select>
+    <br>
+      <label for="category"><b>Category</b></label><span style="color: red !important; display: inline; float: none;">*</span> 
+      <select id="country" name="category" class="form-control">
+        <option value="{{row.category}}">{{row.category}}</option>
+        <option value="electronics">Electronics</option>
+        <option value="education">Education</option>
+        <option value="clothing">Clothing</option>
+        <option value="sports">Sports</option>
+        <option value="clothing">Job</option>
+        <option value="education">Other</option>
+        <option value="education">Vehicle</option>
+    </select>
+    
+      
+    <br> 
+            
+          <label for="Brand"><b>Brand</b></label><span style="color: red !important; display: inline; float: none;">*</span> 
+          <br>
+          <input type="text" placeholder="Product Brand" name="brand" value="{{row.brand}}" required>
+          <br>
+    
+              
+          <label for="price"><b>Price</b></label><span style="color: red !important; display: inline; float: none;">*</span>
+          <br> 
+          <input type="text" placeholder="Product Price" name="price"  value ="{{row.price}}" required>
+    
+          <br>
+          <label for="negotiable"><b>Negotiable</b></label><span style="color: red !important; display: inline; float: none;">*</span> 
+          <br>
+          <select id="negotiable" name="negotiable" class="form-control">
+            <option value="{{row.negotiable}}">{{row.negotiable}}</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+    
+            
+            
+           
+        </select>
+          <br> 
+          <label for="description"><b>Description</b></label><span style="color: red !important; display: inline; float: none;">*</span> 
+          <textarea class="form-control" id="description"   name="description" placeholder="More details = more buyers!" rows="10"></textarea>
+    
+        
+            <label for="city"><b>City</b></label><span style="color: red !important; display: inline; float: none;">*</span> 
+            <select id="country" name="city" class="form-control">
+                <option value="{{row.city}}">{{row.city}}</option>
+                <option value="Accra">Accra</option>
+                <option value="Kumasi">Kumasi</option>
+                <option value="Sekondi">Sekondi- Takoradi</option>
+                
+                
+               
+            </select>
+    
+                 
+          <label for="phone"><b>Phone</b></label><span style="color: red !important; display: inline; float: none;">*</span> 
+          <br>
+          <input type="text" placeholder="your phone number" name="phone" value="{{row.phone}}" required>
+    
+    
+            <br>
+               
+          <label for="city"><b>Add Photo</b></label><span style="color: red !important; display: inline; float: none;">*</span>
+          <br> 
+          <input type="file" value="{{row.image}}" name= "image">
+         
+        <br>
+          <input type="submit" value="submit" style="width: 50%; margin: auto;  padding: 10px;">
+    
+    
+        </form>
+   
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
+              <span class="glyphicon glyphicon-remove"></span> Cancel
+            </button>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor  %}
+
+  <script>
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+  </script>
+</body>
+</html>

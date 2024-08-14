@@ -1,0 +1,156 @@
+{% include 'base.html'  %}
+{% include 'c_header.html'  %}
+
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <style>
+
+        .w3-content{position:relative;margin-top:0em;}
+.w3-btn,.w3-button{border:none;display:inline-block;outline:0;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
+.w3-btn,.w3-button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none} 
+.w3-disabled,.w3-btn:disabled,.w3-button:disabled{cursor:not-allowed;opacity:0.3}.w3-disabled *,:disabled *{pointer-events:none}
+.w3-bar-block .w3-dropdown-hover .w3-button,.w3-bar-block .w3-dropdown-click .w3-button{width:100%;text-align:left;padding:8px 16px}
+.w3-button:hover{color:#000!important;background-color:#ccc!important}
+
+.w3-content button {
+position: absolute;
+top: 32%;
+}
+
+.w3-display-right {right:0}
+.w3-display-left {left:0}
+    </style>
+  </head>
+
+  
+
+
+            
+            {% with messages = get_flashed_messages() %}
+
+            {% if messages %}
+
+            {% for message in messages %}
+
+            <div class = "alert alert-success alert-dismissable" role="alert">
+                <button type="button" class="close" data-dismiss = "alert" aria-label= "close">
+
+                    <span aria-hidden ="true">x</span>
+                </button>
+                {{message}}
+
+            </div>
+
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+
+               
+      
+        <div class="row text-center">
+          
+            {% for row in imb %}
+    <div class="col-sm-4" >
+      
+      <div class="thumbnail" id = {{row.id}}>
+        <p><strong>{{row.brand}}</strong></p> 
+         
+        <img src="{{url_for('get_image_accept_ads_link',id = row.id)}}" alt="doctor" width="200" height="100">
+
+       <p> <div style="border-color: gainsboro; color: black; border-radius: 50px;">
+          {{row.description}} <p>{{row.post_on}}</p>
+        
+        </div></p>
+  
+    <p><strong>  Price: {{row.price}}. negotiable: {{row.negotiable}} <a href="tel:{{row.phone}} "><i class="fa fa-phone fa-2x"></i></a></strong>    
+    </div>
+    </div>
+    </div>
+    
+    
+    
+
+    {% endfor %}
+
+
+    <div class="row text-center">
+        
+    <p  style="background-color: #f1f1f1;"><strong>More ads from this client </strong></p>
+          
+        {% for row in prmo %}
+<div class="col-sm-4" >
+  
+  <div class="thumbnail" id = {{row.id}}>
+    <p><strong>{{row.brand}}</strong></p> 
+     
+    <img src="{{url_for('get_image_accept_ads_link',id = row.id)}}" alt="doctor" width="200" height="100">
+
+   <p> <div style="border-color: gainsboro; color: black; border-radius: 50px;">
+      {{row.description}} <p>{{row.post_on}}</p>
+    
+    </div></p>
+
+<p><strong>  Price: {{row.price}}. negotiable: {{row.negotiable}} <a href="tel:{{row.phone}}" }}><i class="fas fa-phone-square fa-2x"></i></a></strong>    
+</div>
+</div>
+
+
+
+
+{% endfor %}
+
+
+  
+    <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+        function plusDivs(n) {
+        showDivs(slideIndex += n);
+         }
+        function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {slideIndex = 1} if (n < 1) {slideIndex = x.length}for
+        (i = 0; i < x.length; i++) {x[i].style.display = "none";}
+        x[slideIndex-1].style.display = "block"; }
+
+        $(document).ready(function(){
+          // Initialize Tooltip
+          $('[data-toggle="tooltip"]').tooltip(); 
+          
+          // Add smooth scrolling to all links in navbar + footer link
+          $(".navbar a, .promo a,footer a[href='#myPage'],").on('click', function(event) {
+        
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+        
+              // Prevent default anchor click behavior
+              event.preventDefault();
+        
+              // Store hash
+              var hash = this.hash;
+        
+              // Using jQuery's animate() method to add smooth page scroll
+              // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+              $('html, body').animate({
+                scrollTop: $(hash).offset().top
+              }, 900, function(){
+           
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              });
+            } // End if
+          });
+        })
+        SS 
+       </script>
+       
+</body>
+</html>
